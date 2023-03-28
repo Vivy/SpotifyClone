@@ -10,9 +10,7 @@ export const Login = styled.div`
   background:  #1db954;
   gap: 5rem;
 `
-export const Image = styled.img`
-  height: 20vh;
-`
+
 export const Button = styled.button`
   padding: 1rem 5rem;
   border-radius: 5rem;

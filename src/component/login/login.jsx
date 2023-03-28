@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from '../image/image';
 import * as S from './login.style';
 
 const Login = () => {
@@ -23,9 +24,10 @@ const Login = () => {
 
   return (
     <S.Login>
-      <S.Image
+      <Image
         src='https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png'
-        alt=''
+        alt='logo Black'
+        height
       />
       <S.Button onClick={handleClick}>Connect to Spotify</S.Button>
     </S.Login>
