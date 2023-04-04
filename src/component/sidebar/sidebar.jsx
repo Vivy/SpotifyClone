@@ -2,6 +2,7 @@ import Image from '../image/image';
 import * as S from './sidebar.style';
 import { IoLibrary } from 'react-icons/io5';
 import { MdHomeFilled, MdSearch } from 'react-icons/md';
+import PlayList from '../playlist/playlist';
 
 const Sidebar = () => {
   return (
@@ -31,6 +32,7 @@ const Sidebar = () => {
           </S.Li>
         </S.Ul>
       </S.TopLinks>
+      <PlayList />
     </S.Sidebar>
   );
 };

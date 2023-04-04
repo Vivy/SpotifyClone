@@ -27,7 +27,7 @@ const Login = () => {
       <Image
         src='https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Black.png'
         alt='logo Black'
-        height
+        height='20'
       />
       <S.Button onClick={handleClick}>Connect to Spotify</S.Button>
     </S.Login>
