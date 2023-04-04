@@ -3,8 +3,30 @@ import Sidebar from '../sidebar/sidebar';
 import * as S from './spotify.style';
 import Body from '../body/body';
 import Footer from '../footer/footer';
+import { useEffect } from 'react';
+import { useStateProvider } from '../../utils/stateprovider';
+import axios from 'axios';
+import { reducerCases } from '../../utils/constants';
 
 const Spotify = () => {
+  const [{ token }, dispatch] = useStateProvider();
+  useEffect(() => {
+    const getUserInfo = async () => {
+      const { data } = await axios.get('https://api.spotify.com/v1/me', {
+        headers: {
+          Authorization: 'Bearer ' + token,
+          'Content-Type': 'application/json',
+        },
+      });
+      const userInfo = {
+        unerId: data.id,
+        userName: data.display_name,
+      };
+      dispatch({ type: reducerCases.SET_USER, userInfo });
+    };
+    getUserInfo();
+  }, [dispatch, token]);
+
   return (
     <S.Spotify>
       <S.SpotifyBody>
