@@ -5,7 +5,7 @@ import { AiFillClockCircle } from 'react-icons/ai';
 import axios from 'axios';
 import { reducerCases } from '../../utils/constants';
 
-const Body = () => {
+const Body = ({ headerBackground }) => {
   const [{ token, selectedPlaylist, selectedPlaylistId }, dispatch] =
     useStateProvider();
 
@@ -43,8 +43,13 @@ const Body = () => {
     getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
 
+  const msToMinutes = (ms) => {
+    const minutes = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+    return minutes + ':' + (seconds < 10 ? '0' : '' + seconds);
+  };
   return (
-    <S.Body>
+    <S.Body headerBackground={headerBackground}>
       {selectedPlaylist && (
         <>
           <S.Playlist>
@@ -107,7 +112,7 @@ const Body = () => {
                         <span>{album}</span>
                       </S.Col>
                       <S.Col>
-                        <span>{duration}</span>
+                        <span>{msToMinutes(duration)}</span>
                       </S.Col>
                     </S.Row>
                   );

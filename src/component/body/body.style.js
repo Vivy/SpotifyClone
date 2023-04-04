@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Body = styled.div``
+export const Body = styled.div`
+
+`
 export const Playlist = styled.div`
   margin: 0 2rem;
   display: flex;
@@ -35,6 +37,8 @@ export const HeaderRow = styled.div`
   top: 15vh;
   padding: 1rem 3rem;
   transition: 0.3s ease-in-out;
+  background-color: ${({ headerBackground }) =>
+    headerBackground ? "#000000dc" : "none"};
   `
 export const Col = styled.div`
   display: flex;
