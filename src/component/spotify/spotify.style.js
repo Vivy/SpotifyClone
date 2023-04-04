@@ -20,6 +20,12 @@ export const Body = styled.div`
   height: 100%;
   width: 100%;
   overflow: auto;
+  &::-webkit-scrollbar {
+    width: .7rem;
+    &-thumb {
+      background-color: rgba(255,255,255, 0.6);
+    }
+  }
 `
 
 export const BodyContent = styled.div``
