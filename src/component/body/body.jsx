@@ -95,7 +95,7 @@ const Body = ({ headerBackground }) => {
                   index
                 ) => {
                   return (
-                    <S.Row>
+                    <S.Row key={id}>
                       <S.Col>
                         <span>{index + 1}</span>
                       </S.Col>

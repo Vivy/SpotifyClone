@@ -5,7 +5,6 @@ import { useStateProvider } from '../../utils/stateprovider';
 
 const Navbar = ({ navBackground }) => {
   const [{ userInfo }] = useStateProvider();
-  console.log(userInfo);
   return (
     <S.Navbar navBackground={navBackground}>
       <S.SearchBar>

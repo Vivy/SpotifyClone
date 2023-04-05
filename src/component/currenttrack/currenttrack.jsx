@@ -5,31 +5,34 @@ import { useEffect } from 'react';
 
 const CurrentTrack = () => {
   const [{ token, currentlyPlaying }, dispatch] = useStateProvider();
+
   useEffect(() => {
     const getCurrentTrack = async () => {
       const response = await axios.get(
         'https://api.spotify.com/v1/me/player/currently-playing',
         {
           headers: {
-            'Content-Type': 'application/json',
             Authorization: 'Bearer ' + token,
+            'Content-Type': 'application/json',
           },
         }
       );
+      console.log(response, 'testttttt');
       if (response.data !== '') {
-        const currentlyPlaying = {
+        const currentPlaying = {
           id: response.data.item.id,
           name: response.data.item.name,
           artists: response.data.item.artists.map((artist) => artist.name),
           image: response.data.item.album.images[2].url,
         };
-        dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
+        dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
       } else {
-        dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying: null });
+        dispatch({ type: reducerCases.SET_PLAYING, currentPlaying: null });
       }
     };
     getCurrentTrack();
   }, [token, dispatch]);
+
   return (
     <S.CurrentTrack>
       {currentlyPlaying && (
